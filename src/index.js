@@ -5,16 +5,17 @@ import routes from "./routes/routes.js";
 import connectDB from "./config/db.js";
 
 dotenv.config();
+connectDB();
 
 const app = express();
 
-connectDB();
+
 
 app.use(cors());
 app.use(express.json());
 
 app.use(routes);
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`));
