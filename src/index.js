@@ -3,9 +3,12 @@ import cors from "cors";
 import dotenv from "dotenv";
 import routes from "./routes/routes.js";
 import connectDB from "./config/db.js";
+import { createAdminIfMissing } from "./config/createAdmin.js";
 
 dotenv.config();
-connectDB();
+connectDB().then(() => { 
+    createAdminIfMissing(); 
+});
 
 const app = express();
 
