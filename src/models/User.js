@@ -39,7 +39,7 @@ const userSchema = new mongoose.Schema({
     enum: USER_ROLES,
     default: "user"
   }
-}, { timestamps: true });
+}, { timestamps: false });
 
 const User = mongoose.model("User", userSchema);
 export default User;
